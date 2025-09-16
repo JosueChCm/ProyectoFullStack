@@ -1,0 +1,151 @@
+/* setup SOLO dentro de .links */
+.links *{
+  margin: 0;
+  padding: 0;
+}
+
+/* ¡Ojo! @font-face puede quedar global (no afecta estilos por sí mismo) */
+@font-face { font-family: 'Monoton'; font-style: normal; font-weight: 400;
+  src: local('Monoton'), local('Monoton-Regular'),
+       url(http://themes.googleusercontent.com/static/fonts/monoton/v4/AKI-lyzyNHXByGHeOcds_w.woff) format('woff'); }
+
+@font-face { font-family: 'Iceland'; font-style: normal; font-weight: 400;
+  src: local('Iceland'), local('Iceland-Regular'),
+       url(http://themes.googleusercontent.com/static/fonts/iceland/v3/F6LYTZLHrG9BNYXRjU7RSw.woff) format('woff'); }
+
+@font-face { font-family: 'Pacifico'; font-style: normal; font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'),
+       url(http://themes.googleusercontent.com/static/fonts/pacifico/v5/yunJt0R8tCvMyj_V4xSjafesZW2xOQ-xsNqO47m55DA.woff) format('woff'); }
+
+@font-face { font-family: 'PressStart'; font-style: normal; font-weight: 400;
+  src: local('Press Start 2P'), local('PressStart2P-Regular'),
+       url(http://themes.googleusercontent.com/static/fonts/pressstart2p/v2/8Lg6LX8-ntOHUQnvQ0E7o3dD2UuwsmbX3BOp4SL_VwM.woff) format('woff'); }
+
+@font-face { font-family: 'Audiowide'; font-style: normal; font-weight: 400;
+  src: local('Audiowide'), local('Audiowide-Regular'),
+       url(http://themes.googleusercontent.com/static/fonts/audiowide/v2/8XtYtNKEyyZh481XVWfVOj8E0i7KZn-EPnyo3HZu7kw.woff) format('woff'); }
+
+@font-face { font-family: 'Vampiro One'; font-style: normal; font-weight: 400;
+  src: local('Vampiro One'), local('VampiroOne-Regular'),
+       url(http://themes.googleusercontent.com/static/fonts/vampiroone/v3/Ho2Xld8UbQyBA8XLxF1_NYbN6UDyHWBl620a-IRfuBk.woff) format('woff'); }
+
+/* El “body” de tu bloque: ahora es .links (no el body global) */
+.links{
+  background-color: #222222;
+}
+
+/* contenedor */
+.links #container{
+  width:500px;
+  margin:auto;
+}
+
+/* neón SOLO dentro de .links */
+.links p{
+    display: inline-block;
+    width: 160px;
+  text-align:center;
+  font-size:30px;
+  margin:20px 0;
+}
+
+.links a{
+  text-decoration:none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* Importante: los nth-child ahora cuentan los <p> dentro de .links */
+.links p:nth-child(1) a{
+  color:#1180ff;
+  font-family:PressStart;
+}
+.links p:nth-child(1) a:hover{
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate; 
+}
+
+.links p:nth-child(2) a{
+  color:#1180ff;
+  font-family:PressStart;
+}
+.links p:nth-child(2) a:hover{
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
+.links p:nth-child(3) a{
+  color:#1180ff;
+  font-family:PressStart;
+}
+.links p:nth-child(3) a:hover{ 
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate; 
+}
+
+.links p:nth-child(4) a{
+  color:#B6FF00;
+  font-family:PressStart;
+  font-size:0.8em;
+}
+.links p:nth-child(4) a:hover{
+  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+  animation: neon4 1.5s ease-in-out infinite alternate;
+}
+
+.links p:nth-child(5) a{
+  color:#FF9900;
+  font-family:;
+}
+.links p:nth-child(5) a:hover{
+  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+  animation: neon5 1.5s ease-in-out infinite alternate; 
+}
+
+.links p:nth-child(6) a{
+  color:#BA01FF;
+  font-family:Vampiro One;
+}
+.links p:nth-child(6) a:hover{
+  -webkit-animation: neon6 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon6 1.5s ease-in-out infinite alternate;
+  animation: neon6 1.5s ease-in-out infinite alternate;
+}
+
+.links p a:hover{
+  color:#ffffff;  
+}
+
+/* keyframes se pueden dejar globales (no afectan nada por sí mismos) */
+@-webkit-keyframes neon1 { /* ...igual que tu versión... */ }
+@-webkit-keyframes neon2 { /* ... */ }
+@-webkit-keyframes neon3 { /* ... */ }
+@-webkit-keyframes neon4 { /* ... */ }
+@-webkit-keyframes neon5 { /* ... */ }
+@-webkit-keyframes neon6 { /* ... */ }
+
+@-moz-keyframes neon1 { /* ... */ }
+@-moz-keyframes neon2 { /* ... */ }
+@-moz-keyframes neon3 { /* ... */ }
+@-moz-keyframes neon4 { /* ... */ }
+@-moz-keyframes neon5 { /* ... */ }
+@-moz-keyframes neon6 { /* ... */ }
+
+@keyframes neon1 { /* ... */ }
+@keyframes neon2 { /* ... */ }
+@keyframes neon3 { /* ... */ }
+@keyframes neon4 { /* ... */ }
+@keyframes neon5 { /* ... */ }
+@keyframes neon6 { /* ... */ }
+
+/* Responsive SOLO dentro de .links */
+@media (max-width: 650px) {
+  .links #container{ width: 100%; }
+  .links p{ font-size:3.5em; }
+}
