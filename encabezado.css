@@ -8,7 +8,7 @@ body {
 /* --- Bloque del encabezado con el texto animado (AISLADO) --- */
 header {
   /* fondo oscuro solo para el header, no para toda la página */
-  background: #090d00;
+  background: #0a0c0c;
   color: rgba(255,255,255,.25);
   text-align: center;
 
