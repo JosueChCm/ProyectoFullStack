@@ -3,131 +3,96 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Página con Sidebar</title>
+  <title>Mi Portafolio</title>
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Botón flotante en mobile -->
-  <button id="sidebarToggle"
-          class="sidebar-toggle"
-          aria-label="Abrir menú lateral"
-          aria-controls="sidebar"
-          aria-expanded="false">
-    ☰
-  </button>
-
-  <aside id="sidebar" class="sidebar" aria-label="Navegación lateral">
-    <div class="brand">
-      <span class="logo" aria-hidden="true">◆</span>
-      <strong>Mi Sitio</strong>
-    </div>
-
-    <nav class="nav" role="navigation">
-      <ul>
-        <li><a class="nav-link active" href="#inicio">Inicio</a></li>
-        <li><a class="nav-link" href="#caracteristicas">Características</a></li>
-        <li><a class="nav-link" href="#ejemplos">Ejemplos</a></li>
-        <li><a class="nav-link" href="#precios">Precios</a></li>
-        <li><a class="nav-link" href="#faq">FAQ</a></li>
-        <li><a class="nav-link" href="#contacto">Contacto</a></li>
-      </ul>
+  <!-- Topbar -->
+  <header class="topbar">
+    <button class="hamburger" id="btnSidebar" aria-label="Abrir menú" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <h1 class="brand">PAGINA WEB : <span>Josue Chulluncuy Cambillo</span></h1>
+    <nav class="quick-links" aria-label="Accesos rápidos">
+      <a href="#"><i class="fa-solid fa-house"></i><span> Maquetación</span></a>
+      <a href="#"><i class="fa-brands fa-css3-alt"></i><span> CSS 3</span></a>
+      <a href="#"><i class="fa-brands fa-css3-alt"></i><span> TailwindCSS</span></a>
+      <a href="#"><i class="fa-brands fa-js"></i><span> JavaScript</span></a>
     </nav>
+  </header>
 
-    <footer class="sidebar-footer">
-      <a class="small-link" href="#" id="collapseSidebar">Contraer menú</a>
-    </footer>
-  </aside>
-
-  <main id="content" class="content" tabindex="-1">
-    <header class="topbar">
-      <h1>Plantilla con Sidebar Navegable</h1>
-      <p>Layout responsive con scroll suave, resaltado de sección (scrollspy) y menú colapsable.</p>
-    </header>
-
-    <section id="inicio" class="section">
-      <h2>Inicio</h2>
-      <p>
-        Bienvenido. Esta es una sección de muestra. Desplázate o usa el menú lateral.
-      </p>
-    </section>
-
-    <section id="caracteristicas" class="section">
-      <h2>Características</h2>
-      <ul class="features">
-        <li>Accesible (ARIA, teclado, contraste)</li>
-        <li>Responsive: sidebar “off-canvas” en móvil</li>
-        <li>Scroll suave y resaltado automático</li>
-        <li>CSS variables para personalizar colores</li>
-      </ul>
-    </section>
-
-    <section id="ejemplos" class="section">
-      <h2>Ejemplos</h2>
-      <p>
-        Agrega tus tarjetas, tablas o gráficos aquí. El contenedor mantiene
-        un ancho cómodo para lectura.
-      </p>
-    </section>
-
-    <section id="precios" class="section">
-      <h2>Precios</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Básico</h3>
-          <p class="price">$9/mes</p>
-          <p>Ideal para empezar.</p>
-        </article>
-        <article class="card">
-          <h3>Pro</h3>
-          <p class="price">$29/mes</p>
-          <p>Para equipos pequeños.</p>
-        </article>
-        <article class="card">
-          <h3>Empresa</h3>
-          <p class="price">$79/mes</p>
-          <p>Funciones avanzadas.</p>
-        </article>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-label="Menú lateral">
+      <div class="sidebar-title">
+        <i class="fa-solid fa-bars-staggered"></i><span>Menú</span>
       </div>
-    </section>
 
-    <section id="faq" class="section">
-      <h2>Preguntas frecuentes</h2>
-      <details>
-        <summary>¿Cómo personalizo los colores?</summary>
-        <p>Edita las variables en <code>styles.css</code> dentro de <code>:root</code>.</p>
-      </details>
-      <details>
-        <summary>¿Cómo agrego más secciones?</summary>
-        <p>
-          Crea un nuevo <code>&lt;section id="..."&gt;</code> y agrega un
-          <code>&lt;a href="#..."&gt;</code> en el menú.
-        </p>
-      </details>
-    </section>
+      <nav class="menu">
+        <a class="menu-item active" href="#maquetacion" data-section="maquetacion">
+          <i class="fa-solid fa-house"></i><span>Presentacion</span>
+        </a>
+        <a class="menu-item" href="#quien-soy" data-section="quien-soy">
+          <i class="fa-solid fa-user"></i><span>Quien soy</span>
+        </a>
+        <a class="menu-item" href="#punto3" data-section="css3">
+          <i class=""></i><span>PUNTO 3</span>
+        </a>
+        <a class="menu-item" href="#punto4" data-section="javascript">
+          <i class=""></i><span>Punto 4</span>
+        </a>
+      </nav>
 
-    <section id="contacto" class="section">
-      <h2>Contacto</h2>
-      <form class="contact-form" onsubmit="return false;">
-        <label>
-          Nombre
-          <input type="text" placeholder="Tu nombre" required />
-        </label>
-        <label>
-          Email
-          <input type="email" placeholder="tu@correo.com" required />
-        </label>
-        <label>
-          Mensaje
-          <textarea rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
-        </label>
-        <button class="btn">Enviar</button>
-      </form>
-    </section>
+      <footer class="sidebar-footer">
+        <small>© <span id="year"></span> Mi Portafolio</small>
+      </footer>
+    </aside>
 
-    <footer class="page-footer">
-      <small>© 2025 • Hecho con ♥</small>
-    </footer>
-  </main>
+    <!-- Contenido -->
+    <main class="content">
+      <!-- MAQUETACIÓN -->
+      <section id="maquetacion" class="section visible">
+        <h2>Bienvenido a mi pagina web - portafolio</h2>
+        <hr />
+        <div class="card">
+          <h3>Sobre mi</h3>
+          <p>Usa el menú de la izquierda para navegar y ver pequeños ejemplos funcionales.</p>
+        </div>
+
+        <div id="layoutGrid" class="grid cols-3">
+          <article class="card"><h4>Metas</h4><p>Informacion apra agregar</p></article>
+          <article class="card"><h4>Estudios</h4><p>Informacion de mis estudios</p></article>
+          <article class="card"><h4>Informacion del curso</h4><p>Descripcion del curso</p></article>
+          <article class="card"><h4>Objetivo</h4><p>informacion de los objetivos del curso</p></article>
+        </div>
+      </section>
+
+      <!-- QUIÉN SOY -->
+      <section id="quien-soy" class="section">
+        <h2>¿Quién soy?</h2>
+        <hr />
+        <div class="profile card">
+          <img src="https://i.pravatar.cc/140?img=12" alt="Foto de perfil" class="avatar">
+          <div>
+            <h3>Josue Chulluncuy Cambillo</h3>
+            <p>Estudiante de ing de sistemas de la UNDC</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="punto3" class="section">
+        <h2>Punto 3</h2>
+        <hr />
+      </section>
+
+      <section id="punto4" class="section">
+        <h2>punto 4</h2>
+        <hr />
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
