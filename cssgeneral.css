@@ -1,0 +1,309 @@
+/* =========================================================
+   STYLES UNIFICADO (encabezado.css + cssgeneral.css + 
+   sombreado.css + animaciones.css) – Responsivo
+   ========================================================= */
+
+/* ---------- 1) Base / Reset / Variables ---------- */
+:root{
+  --maxw: 1100px;
+  --text: #ffffff;
+  --muted: #d1d5db;
+  --accent: #f38824;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font: 400 clamp(15px, 1.6vw, 18px)/1.65 "Neuton", serif;
+  color: var(--text);
+  /* Fondo original (cssgeneral) en gradiente */
+  background: #232526;
+  background: -webkit-linear-gradient(to bottom, #414345, #232526);
+  background: linear-gradient(to bottom, #414345, #232526);
+}
+
+img,video{ max-width:100%; height:auto; display:block; }
+
+/* ---------- 2) Encabezado (antes en encabezado.css) ---------- */
+header{
+  background:#0a0c0c;
+  color:rgba(255,255,255,.85);
+  text-align:center;
+  padding: clamp(32px, 6vw, 72px) 0 clamp(42px, 8vw, 90px);
+}
+
+header > p{
+  text-transform:uppercase;
+  letter-spacing:.5em;
+  display:inline-block;
+  border:4px double rgba(255,255,255,.25);
+  border-width:4px 0;
+  padding:1.5em 0;
+  position:relative;            /* sin absolute para no superponer */
+  width:min(92%, 40em);
+  margin:0 auto;
+  overflow-wrap:anywhere;       /* evita desbordes de texto largo */
+}
+
+header > p span{
+  font:700 clamp(28px, 7vw, 64px)/1 "Oswald", sans-serif;
+  letter-spacing:0;
+  padding:.25em 0 .325em;
+  display:block;
+  margin:0 auto;
+  text-shadow:0 0 80px rgba(255,255,255,.5);
+
+  /* Efecto de imagen clip animado */
+  background:url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+  -webkit-animation: aitf 80s linear infinite;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+}
+
+@-webkit-keyframes aitf{
+  0%{ background-position:0% 50%; }
+  100%{ background-position:100% 50%; }
+}
+
+/* ================== LINKS (estilo original, ahora responsive) ================== */
+
+/* setup SOLO dentro de .links */
+.links *{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fuentes (mismo set; uso HTTPS para evitar contenido mixto) */
+@font-face{font-family:'Monoton';font-style:normal;font-weight:400;
+  src:local('Monoton'),local('Monoton-Regular'),
+      url(https://themes.googleusercontent.com/static/fonts/monoton/v4/AKI-lyzyNHXByGHeOcds_w.woff) format('woff');}
+@font-face{font-family:'Iceland';font-style:normal;font-weight:400;
+  src:local('Iceland'),local('Iceland-Regular'),
+      url(https://themes.googleusercontent.com/static/fonts/iceland/v3/F6LYTZLHrG9BNYXRjU7RSw.woff) format('woff');}
+@font-face{font-family:'Pacifico';font-style:normal;font-weight:400;
+  src:local('Pacifico Regular'),local('Pacifico-Regular'),
+      url(https://themes.googleusercontent.com/static/fonts/pacifico/v5/yunJt0R8tCvMyj_V4xSjafesZW2xOQ-xsNqO47m55DA.woff) format('woff');}
+@font-face{font-family:'PressStart';font-style:normal;font-weight:400;
+  src:local('Press Start 2P'),local('PressStart2P-Regular'),
+      url(https://themes.googleusercontent.com/static/fonts/pressstart2p/v2/8Lg6LX8-ntOHUQnvQ0E7o3dD2UuwsmbX3BOp4SL_VwM.woff) format('woff');}
+@font-face{font-family:'Audiowide';font-style:normal;font-weight:400;
+  src:local('Audiowide'),local('Audiowide-Regular'),
+      url(https://themes.googleusercontent.com/static/fonts/audiowide/v2/8XtYtNKEyyZh481XVWfVOj8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');}
+@font-face{font-family:'Vampiro One';font-style:normal;font-weight:400;
+  src:local('Vampiro One'),local('VampiroOne-Regular'),
+      url(https://themes.googleusercontent.com/static/fonts/vampiroone/v3/Ho2Xld8UbQyBA8XLxF1_NYbN6UDyHWBl620a-IRfuBk.woff) format('woff');}
+
+/* “Body” del bloque de links (mismo fondo) */
+.links{
+  background-color:#222222;
+  padding: 10px 16px;
+}
+
+/* CONTENEDOR: de ancho fijo a Grid fluido con gap (evita acoples) */
+.links #container{
+  max-width: 900px;          /* antes 500px; ahora respira mejor */
+  margin: 0 auto;
+
+  display: grid;
+  gap: 16px;                 /* separación consistente entre botones */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  align-items: stretch;
+}
+
+/* Ítem (mantengo el <p>) */
+.links p{
+  display: block;
+  text-align: center;
+  font-size: clamp(20px, 2vw, 30px);  /* antes 30px fijo */
+  margin: 0;                          /* usamos el gap del grid */
+}
+
+/* Anchor: mismo comportamiento y transición; más robusto en móvil */
+.links a{
+  display: block;
+  text-decoration: none;
+  transition: all .5s;
+
+  /* Mejor área clicable sin “cajas” extra visibles */
+  padding: 8px 6px;
+
+  /* Evita montajes de textos largos */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ======= Colores y fuentes por posición (igual que el original) ======= */
+.links p:nth-child(1) a{
+  color:#1180ff;
+  font-family:PressStart, monospace;
+  font-size:.6em;
+}
+.links p:nth-child(1) a:hover{
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+.links p:nth-child(2) a{
+  color:#1180ff;
+  font-family:PressStart, monospace;
+  font-size:.6em;
+}
+.links p:nth-child(2) a:hover{
+  animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
+.links p:nth-child(3) a{
+  color:#1180ff;
+  font-family:PressStart, monospace;
+  font-size:.6em;
+}
+.links p:nth-child(3) a:hover{
+  animation: neon3 1.5s ease-in-out infinite alternate;
+}
+
+.links p:nth-child(4) a{
+  color:#B6FF00;
+  font-family:PressStart, monospace;
+  font-size:.8em;
+}
+.links p:nth-child(4) a:hover{
+  animation: neon4 1.5s ease-in-out infinite alternate;
+}
+
+.links p:nth-child(5) a{
+  color:#FF9900;
+  font-family:PressStart, monospace;
+}
+.links p:nth-child(5) a:hover{
+  animation: neon5 1.5s ease-in-out infinite alternate;
+}
+
+.links p:nth-child(6) a{
+  color:#BA01FF;
+  font-family:'Vampiro One', cursive;
+}
+.links p:nth-child(6) a:hover{
+  animation: neon6 1.5s ease-in-out infinite alternate;
+}
+
+/* Hover genérico tal cual */
+.links p a:hover{ color:#ffffff; }
+
+/* ======= Keyframes (glow neon por color – igual idea que el original) ======= */
+@keyframes neon1{
+  from{ text-shadow: 0 0 2px #1180ff, 0 0 6px #1180ff; }
+  to  { text-shadow: 0 0 4px #1180ff, 0 0 12px #1180ff, 0 0 20px #7cc2ff, 0 0 30px #7cc2ff; }
+}
+@keyframes neon2{
+  from{ text-shadow: 0 0 2px #1180ff, 0 0 6px #1180ff; }
+  to  { text-shadow: 0 0 4px #1180ff, 0 0 12px #1180ff, 0 0 20px #7cc2ff, 0 0 30px #7cc2ff; }
+}
+@keyframes neon3{
+  from{ text-shadow: 0 0 2px #1180ff, 0 0 6px #1180ff; }
+  to  { text-shadow: 0 0 4px #1180ff, 0 0 12px #1180ff, 0 0 20px #7cc2ff, 0 0 30px #7cc2ff; }
+}
+@keyframes neon4{
+  from{ text-shadow: 0 0 2px #B6FF00, 0 0 6px #B6FF00; }
+  to  { text-shadow: 0 0 4px #B6FF00, 0 0 12px #B6FF00, 0 0 20px #caff5a, 0 0 30px #caff5a; }
+}
+@keyframes neon5{
+  from{ text-shadow: 0 0 2px #FF9900, 0 0 6px #FF9900; }
+  to  { text-shadow: 0 0 4px #FF9900, 0 0 12px #FF9900, 0 0 20px #ffc266, 0 0 30px #ffc266; }
+}
+@keyframes neon6{
+  from{ text-shadow: 0 0 2px #BA01FF, 0 0 6px #BA01FF; }
+  to  { text-shadow: 0 0 4px #BA01FF, 0 0 12px #BA01FF, 0 0 20px #d480ff, 0 0 30px #d480ff; }
+}
+
+/* Prefijos opcionales (si quieres máxima compatibilidad) */
+@-webkit-keyframes neon1{ from{ text-shadow: 0 0 2px #1180ff, 0 0 6px #1180ff; } to{ text-shadow: 0 0 4px #1180ff, 0 0 12px #1180ff, 0 0 20px #7cc2ff, 0 0 30px #7cc2ff; } }
+@-webkit-keyframes neon2{ from{ text-shadow: 0 0 2px #1180ff, 0 0 6px #1180ff; } to{ text-shadow: 0 0 4px #1180ff, 0 0 12px #1180ff, 0 0 20px #7cc2ff, 0 0 30px #7cc2ff; } }
+@-webkit-keyframes neon3{ from{ text-shadow: 0 0 2px #1180ff, 0 0 6px #1180ff; } to{ text-shadow: 0 0 4px #1180ff, 0 0 12px #1180ff, 0 0 20px #7cc2ff, 0 0 30px #7cc2ff; } }
+@-webkit-keyframes neon4{ from{ text-shadow: 0 0 2px #B6FF00, 0 0 6px #B6FF00; } to{ text-shadow: 0 0 4px #B6FF00, 0 0 12px #B6FF00, 0 0 20px #caff5a, 0 0 30px #caff5a; } }
+@-webkit-keyframes neon5{ from{ text-shadow: 0 0 2px #FF9900, 0 0 6px #FF9900; } to{ text-shadow: 0 0 4px #FF9900, 0 0 12px #FF9900, 0 0 20px #ffc266, 0 0 30px #ffc266; } }
+@-webkit-keyframes neon6{ from{ text-shadow: 0 0 2px #BA01FF, 0 0 6px #BA01FF; } to{ text-shadow: 0 0 4px #BA01FF, 0 0 12px #BA01FF, 0 0 20px #d480ff, 0 0 30px #d480ff; } }
+
+/* Ajustes finales responsive (por si hay pantallas súper pequeñas) */
+@media (max-width: 360px){
+  .links #container{
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  .links p{ font-size: clamp(18px, 5vw, 26px); }
+}
+
+/* ---------- 5) Footer (pie) ---------- */
+.pie{
+  text-align:left;
+  padding: 16px clamp(16px, 4vw, 28px);
+  background-color:#2b3a49;
+  font-family: "Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;
+}
+.pie h3{
+  color: rgb(218,59,59);
+  margin: 8px 0 10px;
+  font-size: clamp(16px, 2.4vw, 20px);
+}
+.pie p{ margin:6px 0; font-size: clamp(14px, 2vw, 16px); }
+
+/* ---------- 6) Efectos/animaciones (sombreado.css + animaciones.css) ---------- */
+/* text-shadow-pop-top */
+.text-shadow-pop-top{
+  -webkit-animation:text-shadow-pop-top .6s both;
+  animation:text-shadow-pop-top .6s both;
+}
+@-webkit-keyframes text-shadow-pop-top{
+  0%{ text-shadow:0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555; transform:translateY(0); }
+  100%{ text-shadow:0 -1px #555,0 -2px #555,0 -3px #555,0 -4px #555,0 -5px #555,0 -6px #555,0 -7px #555,0 -8px #555; transform:translateY(8px); }
+}
+@keyframes text-shadow-pop-top{
+  0%{ text-shadow:0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555; transform:translateY(0); }
+  100%{ text-shadow:0 -1px #555,0 -2px #555,0 -3px #555,0 -4px #555,0 -5px #555,0 -6px #555,0 -7px #555,0 -8px #555; transform:translateY(8px); }
+}
+
+/* tracking-in-expand */
+.tracking-in-expand{
+  -webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both;
+  animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both;
+}
+@-webkit-keyframes tracking-in-expand{
+  0%{ letter-spacing:-.5em; opacity:0; }
+  40%{ opacity:.6; }
+  100%{ opacity:1; }
+}
+@keyframes tracking-in-expand{
+  0%{ letter-spacing:-.5em; opacity:0; }
+  40%{ opacity:.6; }
+  100%{ opacity:1; }
+}
+
+/* color-change-2x (aplica al contenedor del nombre) */
+.color-change-2x{
+  -webkit-animation:color-change-2x 2s linear infinite alternate both;
+  animation:color-change-2x 2s linear infinite alternate both;
+}
+@-webkit-keyframes color-change-2x{
+  0%{ background:#0e0d0d; }
+  100%{ background:#b8b5af; }
+}
+@keyframes color-change-2x{
+  0%{ background:#2c2424; }
+  100%{ background:#4b453f; }
+}
+
+/* ---------- 7) Ajustes responsivos generales ---------- */
+/* Evita que todo se pegue a los bordes en pantallas pequeñas */
+section{ padding-inline: clamp(12px, 4vw, 32px); }
+
+/* En móviles, centra títulos que antes estaban a la izquierda */
+@media (max-width: 640px){
+  .subtitulo{ text-align:center; }
+  .pie{ text-align:center; }
+}
