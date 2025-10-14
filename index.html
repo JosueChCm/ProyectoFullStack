@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Portafolio</title>
+
+  <!-- ===== CSS global del proyecto ===== -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ===== Iconos (Font Awesome) ===== -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- =========================================================
+       TOPBAR: barra superior con marca + accesos + toggle de tema
+       ========================================================= -->
+  <header class="topbar">
+    <button class="hamburger" id="btnSidebar" aria-label="Abrir menú" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <h1 class="brand">
+      <span class="neon-title" data-text="PAGINA WEB">PAGINA WEB</span> :
+      <span>Josue Chulluncuy Cambillo</span>
+    </h1>
+
+    <div class="topbar-right">
+      <nav class="quick-links fx-borderfill" aria-label="Accesos rápidos">
+        <a href="#Presentacion"><i class="fa-solid fa-house"></i><span> Inicio</span></a>
+        <a href="#mi-perfil" class="code-link"><span class="code-icon">&lt;/&gt;</span><span> Perfil</span></a>
+        <a href="#contactame" class="code-link"><span class="code-icon">&lt;/&gt;</span><span> Contáctame</span></a>
+        <a href="#punto4"><i class="fa-brands fa-js"></i><span> Punto 4</span></a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       LAYOUT principal: sidebar + contenido
+       ========================================================= -->
+  <div class="layout">
+
+    <!-- =======================================================
+         SIDEBAR: navegación lateral con submenús
+         ======================================================= -->
+    <aside class="sidebar" id="sidebar" aria-label="Menú lateral">
+      <div class="sidebar-title">
+        <i class="fa-solid fa-bars-staggered"></i><span>Menú</span>
+      </div>
+
+      <nav class="menu">
+        <!-- Secciones existentes -->
+        <a class="menu-item active" href="#Presentacion" data-section="Presentacion">
+          <i class="fa-solid fa-house"></i><span>Presentación</span>
+        </a>
+        <a class="menu-item" href="#mi-perfil" data-section="mi-perfil">
+          <i class="fa-solid fa-user"></i><span>Mi Perfil</span>
+        </a>
+
+        <!-- Submenú Proyectos (como lo tenías) -->
+        <button class="menu-item menu-toggle" id="projToggle" aria-expanded="false" aria-controls="projMenu">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Proyectos</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </button>
+        <div class="submenu" id="projMenu" hidden>
+          <a class="menu-item submenu-item" href="#Presentacion">
+            <i class="fa-solid fa-layer-group"></i><span>Maquetación</span>
+          </a>
+          <a class="menu-item submenu-item code-link" href="#mi-perfil">
+            <span class="code-icon">&lt;/&gt;</span><span>CSS</span>
+          </a>
+          <a class="menu-item submenu-item" href="#punto4">
+            <i class="fa-brands fa-js"></i><span>JavaScript</span>
+          </a>
+        </div>
+
+        <!-- ===== NUEVO: Submenú Backend (DB) ===== -->
+        <button class="menu-item menu-toggle" id="backendToggle" aria-expanded="false" aria-controls="backendMenu">
+          <i class="fa-solid fa-database"></i>
+          <span>Backend</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </button>
+        <div class="submenu" id="backendMenu" hidden>
+          <a class="menu-item submenu-item" href="#backend-lectura" data-section="backend-lectura">
+            <i class="fa-solid fa-table"></i><span>Lectura</span>
+          </a>
+          <a class="menu-item submenu-item" href="#backend-insertar" data-section="backend-insertar">
+            <i class="fa-solid fa-circle-plus"></i><span>Insertar</span>
+          </a>
+        </div>
+
+        <a class="menu-item" href="#contactame" data-section="contactame">
+          <i class="fa-solid fa-envelope"></i><span>Contáctame</span>
+        </a>
+        <a class="menu-item" href="#punto4" data-section="punto4">
+          <i class="fa-solid fa-list-check"></i><span>Punto 4</span>
+        </a>
+      </nav>
+
+      <footer class="sidebar-footer">
+        <small>© <span id="year"></span> Mi Portafolio</small>
+      </footer>
+    </aside>
+
+    <!-- =======================================================
+         CONTENIDO: secciones (incluye las nuevas de Backend)
+         ======================================================= -->
+    <main class="content">
+      <!-- ===== Presentación ===== -->
+      <section id="Presentacion" class="section visible">
+        <h2>Bienvenido a mi página web - portafolio</h2>
+        <hr />
+        <div class="card">
+          <h3>Sobre mí</h3>
+          <p>Usa el menú de la izquierda para navegar y ver pequeños ejemplos funcionales.</p>
+        </div>
+        <div id="layoutGrid" class="grid cols-3">
+          <article class="card"><h4>Metas</h4><p>Información para agregar</p></article>
+          <article class="card"><h4>Estudios</h4><p>Información de mis estudios</p></article>
+          <article class="card"><h4>Información del curso</h4><p>Descripción del curso</p></article>
+          <article class="card"><h4>Objetivo</h4><p>Información de los objetivos del curso</p></article>
+        </div>
+      </section>
+
+      <!-- ===== Mi Perfil ===== -->
+      <section id="mi-perfil" class="section">
+        <h2>Mi Perfil</h2>
+        <hr />
+        <div class="profile card">
+          <img src="https://i.pravatar.cc/140?img=12" alt="Foto de perfil" class="avatar">
+          <div>
+            <h3>Josue Chulluncuy Cambillo</h3>
+            <p>Estudiante de Ing. de Sistemas de la UNDC</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Backend: Lectura (lista) ===== -->
+      <section id="backend-lectura" class="section">
+        <h2>Lectura (ventas)</h2>
+        <hr />
+        <div class="card">
+          <!-- Barra de acciones -->
+          <div class="row-actions" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+            <div class="input-wrap" style="display:flex;gap:8px;align-items:center;">
+              <input id="ventasSearch" type="search" placeholder="Buscar…" class="input" style="border-bottom:2px solid #cbd5e1;padding:8px 0;">
+            </div>
+            <div class="btns" style="display:flex;gap:8px;">
+              <button id="btnRefrescar" class="btn" type="button"><i class="fa-solid fa-rotate"></i> Refrescar</button>
+              <button id="btnCSV" class="btn" type="button"><i class="fa-solid fa-file-csv"></i> CSV</button>
+            </div>
+          </div>
+
+          <!-- Tabla -->
+          <div class="table-wrap" style="overflow:auto;margin-top:12px;">
+            <table id="tablaVentas" class="table-dark table-hover" style="width:100%;min-width:680px;">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Vendedor</th>
+                  <th>Dirección</th>
+                  <th>Fecha venta</th>
+                </tr>
+              </thead>
+              <tbody><!-- filas por JS --></tbody>
+            </table>
+          </div>
+
+          <!-- Mensajes -->
+          <p id="ventasMsg" class="muted" style="margin-top:10px;"></p>
+        </div>
+      </section>
+
+      <!-- ===== Backend: Insertar (form) ===== -->
+      <section id="backend-insertar" class="section">
+        <h2>Insertar venta</h2>
+        <hr />
+        <div class="card">
+          <form id="formInsertar" class="form" novalidate>
+            <div class="form-grid">
+              <div class="field md-field">
+                <input id="ins_id" name="id" type="number" class="input" placeholder=" " required />
+                <label for="ins_id">ID</label>
+              </div>
+              <div class="field md-field">
+                <input id="ins_vendedor" name="vendedor" type="text" class="input" placeholder=" " required />
+                <label for="ins_vendedor">Vendedor</label>
+              </div>
+              <div class="field md-field">
+                <input id="ins_direccion" name="direccion" type="text" class="input" placeholder=" " required />
+                <label for="ins_direccion">Dirección</label>
+              </div>
+              <div class="field md-field">
+                <input id="ins_fecha" name="fechaventa" type="date" class="input" placeholder=" " required />
+                <label for="ins_fecha">Fecha de venta</label>
+              </div>
+              <div class="actions">
+                <button type="submit" class="btn"><i class="fa-solid fa-save"></i> Guardar</button>
+              </div>
+            </div>
+            <p id="insertMsg" class="muted" style="margin-top:10px;"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ===== Contáctame ===== -->
+      <section id="contactame" class="section">
+        <h2>Contáctame</h2>
+        <hr />
+        <div class="card">
+          <form id="contactameForm" class="form" novalidate>
+            <div class="form-grid">
+              <div class="field md-field">
+                <input id="fullname" name="fullname" type="text" class="input" placeholder=" " required autocomplete="name" />
+                <label for="fullname">Nombres completos</label>
+              </div>
+              <div class="field md-field">
+                <input id="email" name="email" type="email" class="input" placeholder=" " required autocomplete="email" />
+                <label for="email">Correo</label>
+              </div>
+              <div class="field field-span md-field md-textarea">
+                <textarea id="message" name="message" class="input" rows="4" placeholder=" " required></textarea>
+                <label for="message">Mensaje</label>
+              </div>
+              <div class="actions">
+                <button type="submit" class="btn">Enviar</button>
+              </div>
+            </div>
+            <p id="contactameMsg" class="muted" style="margin-top:10px;"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ===== Punto 4 ===== -->
+      <section id="punto4" class="section">
+        <h2>Punto 4</h2>
+        <hr />
+        <div class="card"><p>Contenido pendiente…</p></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===== JS principal ===== -->
+  <script src="script.js"></script>
+</body>
+</html>
